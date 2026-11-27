@@ -1,8 +1,14 @@
-# Keymouse Productions — Portfólio
+# Keymouse Productions — Portfólio institucional
 
-Site institucional da Keymouse Productions, estúdio independente dedicado à criação, desenvolvimento e distribuição de softwares, sistemas e experiências digitais.
+Portfólio oficial da Keymouse Productions, um estúdio independente que idealiza, desenvolve e distribui softwares, sistemas e experiências digitais.
 
-O portfólio reúne os projetos do estúdio e apresenta seus objetivos, estado de desenvolvimento e materiais visuais disponíveis.
+## Projetos apresentados
+
+- **Milens** — suíte criativa para vídeo, imagem, áudio e 3D.
+- **SimuEng** — laboratório de eletrônica com simulação 2D/3D, aulas e projetos guiados.
+- **AutoEng** — plataforma de arquitetura e engenharia com modelo conectado, instalações, medições, materiais e execução.
+
+O portfólio apresenta apenas projetos selecionados e suas imagens disponíveis. Demonstrações ilustrativas são identificadas como tais; capturas de interface são reais quando indicadas.
 
 ## Publicação com GitHub Pages
 
@@ -17,13 +23,10 @@ Endereço: https://joaomanop.github.io/
 
 ## Arquivos
 
-- `index.html`: conteúdo e estrutura do portfólio.
+- `index.html`: conteúdo e estrutura institucional.
 - `styles.css`: identidade visual e layout responsivo.
-- `script.js`: filtros, galerias e interações.
+- `script.js`: filtros, galerias, demonstração do circuito e navegação.
 - `assets/mark.svg`: símbolo da Keymouse.
-
-## Transparência
-
-Projetos sem demonstração pública são apresentados com uma descrição de escopo e identificados como em desenvolvimento ou experimentais, conforme o caso. Imagens ilustrativas são identificadas; capturas de tela são reais quando indicadas como tal.
+- `assets/keymouse-mascot.svg`: mascote vetorial do estúdio.
 
 O site não publica repositórios privados.
