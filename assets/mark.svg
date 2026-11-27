@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect x="2" y="2" width="60" height="60" rx="13" fill="#f3f5f8" stroke="#a9b9ce" stroke-width="2"/>
-  <path d="M17 17h13c10 0 15 5 15 14S40 46 30 46H17z" fill="none" stroke="#182334" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M30 17v29" stroke="#245fd4" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="49" cy="46" r="3" fill="#245fd4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Keymouse Productions">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#202631"/>
+  <path d="M16 14h7v18l16-18h9L31 32l18 19h-9L23 36v15h-7z" fill="#fffdf7"/>
+  <path d="M43 40l12 15-8-1-4 7-4-19z" fill="#c6dc59" stroke="#202631" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="49" cy="13" r="4" fill="#f0644d"/>
 </svg>
