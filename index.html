@@ -4,263 +4,260 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#202631">
-  <meta name="description" content="Keymouse Productions é um estúdio independente que cria, desenvolve e distribui softwares, sistemas e experiências digitais.">
+  <meta name="description" content="Keymouse Productions é um estúdio independente que idealiza, desenvolve e distribui softwares, sistemas e experiências digitais.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Keymouse Productions — Software, tecnologia e criação independente">
-  <meta property="og:description" content="Um estúdio independente. Produtos próprios, ferramentas e experiências digitais.">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/313837903?v=4">
-  <title>Keymouse Productions — Software e criação independente</title>
+  <meta property="og:title" content="Keymouse Productions — Ideias que viram produtos">
+  <meta property="og:description" content="Um estúdio independente de software, tecnologia e criação. Conheça os projetos da Keymouse.">
+  <meta property="og:image" content="https://joaomanop.github.io/assets/projects/milens-video.png">
+  <meta property="og:url" content="https://joaomanop.github.io/">
+  <title>Keymouse Productions — Estúdio independente de software e criação</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=keymouse-zero-1">
 </head>
 <body>
-  <div class="page-frame">
-    <header class="site-header">
-      <a class="identity" href="#top" aria-label="Keymouse Productions, início">
-        <span class="identity-mark keymouse-mark" aria-hidden="true"><b>K</b><i></i><small>m</small></span>
-        <span class="identity-copy"><strong>KEYMOUSE</strong><small>PRODUCTIONS · ESTÚDIO INDEPENDENTE</small></span>
-      </a>
-      <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#projetos">Projetos <i>01</i></a>
-        <a href="#sobre">Estúdio <i>02</i></a>
-        <a href="#contato">Contato <i>03</i></a>
-      </nav>
-      <a class="header-github" href="https://github.com/JoaoManoP" target="_blank" rel="noreferrer">
-        <span>Repositórios</span><span class="external-arrow">↗</span>
-      </a>
-    </header>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Keymouse Productions — início">
+      <img src="assets/mark.svg" alt="" class="brand-mark" width="48" height="48">
+      <span class="brand-word">KEYMOUSE<small>PRODUCTIONS</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <a href="#projetos">Projetos <span>03</span></a>
+      <a href="#estudio">O estúdio</a>
+      <a href="#processo">Como fazemos</a>
+    </nav>
+    <a class="header-contact" href="#contato">Fale com a Keymouse <b aria-hidden="true">↗</b></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu"><span></span><span></span></button>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-content">
-          <div class="section-kicker"><span class="kicker-rule"></span> ESTÚDIO INDEPENDENTE <span class="kicker-year">2026</span></div>
-          <h1>Criamos ferramentas<br>para <span>abrir caminhos.</span></h1>
-          <p class="hero-intro">A Keymouse Productions é um estúdio independente de tecnologia e criação. Idealizamos, desenvolvemos e distribuímos softwares, sistemas e experiências digitais — com identidade própria e atenção ao que acontece depois da primeira versão.</p>
-          <div class="hero-cta">
-            <a class="primary-button" href="#projetos">Explorar projetos <span>↓</span></a>
-            <a class="quiet-link" href="#keymouse">Conhecer a Keymouse <span>↗</span></a>
-          </div>
-          <div class="hero-specialties" aria-label="Áreas de atuação"><span>SOFTWARE</span><span>TECNOLOGIA</span><span>CRIAÇÃO</span><span>PRODUÇÃO DIGITAL</span></div>
-          <div class="hero-footnote"><span class="tiny-square"></span> PESQUISA, PROJETO, DESENVOLVIMENTO E DISTRIBUIÇÃO.</div>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i> ESTÚDIO INDEPENDENTE <span>·</span> BRASIL</p>
+        <h1 id="heroTitle">Ideias não ficam<br>na gaveta. <em>Vir am</em><br><em>produtos.</em></h1>
+        <p class="hero-lead">A Keymouse Productions idealiza, desenvolve e distribui softwares, sistemas e experiências digitais. Criamos produtos com personalidade própria — da primeira ideia ao uso no mundo real.</p>
+        <div class="hero-actions">
+          <a class="button button-lime" href="#projetos">Explorar projetos <span>↓</span></a>
+          <a class="button button-quiet" href="#estudio">Conhecer o estúdio <span>↗</span></a>
         </div>
-
-        <aside class="hero-board" aria-label="Resumo do portfólio">
-          <div class="board-top"><span>KEYMOUSE / ESTÚDIO</span><span>KM — 001</span></div>
-          <div class="board-graphic">
-            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
-            <img class="hero-board-image" src="assets/projects/milens-video.png" alt="Captura real do Milens, um dos produtos desenvolvidos pela Keymouse" decoding="async">
-            <div class="board-monogram">K<span>M</span><b>.</b></div>
-            <span class="orbit-label label-top">SOFTWARE / DESIGN / SISTEMAS</span>
-            <span class="orbit-label label-bottom">IDEIA → PRODUTO → DISTRIBUIÇÃO</span>
-            <span class="orbit-cross cross-one">+</span><span class="orbit-cross cross-two">+</span>
-          </div>
-          <div class="board-bottom">
-            <div><small>ESTRUTURA</small><strong>Estúdio independente</strong></div>
-            <div><small>ATUAÇÃO</small><strong>Software & criação</strong></div>
-          </div>
-        </aside>
-        <div class="hero-index"><span>01</span> / KEYMOUSE PRODUCTIONS</div>
-      </section>
-
-      <section class="projects-section" id="projetos">
-        <div class="section-title-row">
-          <div>
-            <div class="section-kicker"><span class="kicker-rule"></span> 01 / PROJETOS</div>
-            <h2>Projetos com <em>identidade própria.</em></h2>
-          </div>
-          <p class="section-summary">Um portfólio em evolução: produtos, sistemas e experimentos que partem de problemas diferentes, mas compartilham o cuidado com a construção.</p>
-        </div>
-
-        <div class="project-toolbar">
-          <div class="filter-list" role="group" aria-label="Filtrar projetos">
-            <button class="filter-button is-active" data-filter="all" type="button" aria-pressed="true">Todos <span>05</span></button>
-            <button class="filter-button" data-filter="creative" type="button" aria-pressed="false">Criação</button>
-            <button class="filter-button" data-filter="systems" type="button" aria-pressed="false">Sistemas</button>
-            <button class="filter-button" data-filter="engineering" type="button" aria-pressed="false">Engenharia</button>
-            <button class="filter-button" data-filter="ai" type="button" aria-pressed="false">IA & experimentos</button>
-          </div>
-          <span class="project-count">05 PROJETOS SELECIONADOS</span>
-        </div>
-
-        <div class="work-grid">
-          <article class="work-card work-card-milens" data-category="creative">
-            <div class="work-media work-media-milens">
-              <img class="work-image" src="assets/projects/milens-video.png" alt="Captura real do Milens mostrando a timeline multitrilha e o monitor de edição" loading="lazy">
-              <div class="work-media-top"><span>MILENS / EDITOR DESKTOP</span><span>01 — 05</span></div>
-              <button class="work-view-button" type="button" data-open-gallery="milens">Explorar 4 telas <span>↗</span></button>
-              <span class="work-media-label">CAPTURA REAL DO APLICATIVO</span>
-            </div>
-            <div class="work-content">
-              <div class="work-meta"><span>01 / FERRAMENTA CRIATIVA</span><span class="work-status status-live"><i></i> SITE PÚBLICO</span></div>
-              <div class="work-title-row"><h3>Milens</h3><span class="work-code">KM—01</span></div>
-              <p>Editor desktop não destrutivo para produção audiovisual. A timeline multitrilha organiza vídeo e áudio; as áreas de composição, cor e entrega conduzem o trabalho até a exportação. A suíte também reúne ferramentas próprias de imagem, áudio e 3D, além de plugins.</p>
-              <div class="work-highlights"><span>Timeline multitrilha</span><span>Keyframes & curvas</span><span>Mixer de áudio</span><span>Plugins</span></div>
-              <div class="work-footer">
-                <div class="work-tags"><span>Windows</span><span>Vídeo</span><span>Composição</span><span>3D</span></div>
-                <a class="work-link" href="https://milens.com.br/" target="_blank" rel="noreferrer">Visitar Milens <b>↗</b></a>
-              </div>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="systems">
-            <div class="work-media work-media-rumogo">
-              <img class="work-image" src="assets/projects/rumogo-mapa.webp" alt="Mapa base utilizado no projeto Rumo'Go" loading="lazy">
-              <img class="work-brand-image" src="assets/projects/rumogo-logo.png" alt="Logotipo Rumo'Go" loading="lazy">
-              <div class="work-media-top"><span>RUMO'GO / MOBILIDADE</span><span>02 — 05</span></div>
-              <button class="work-view-button" type="button" data-open-gallery="rumogo">Ver identidade e mapa <span>↗</span></button>
-              <span class="work-media-label">MAPA E IDENTIDADE DO PROJETO</span>
-            </div>
-            <div class="work-content">
-              <div class="work-meta"><span>02 / NAVEGAÇÃO E LOCALIZAÇÃO</span><span class="work-status status-build"><i></i> EM DESENVOLVIMENTO</span></div>
-              <div class="work-title-row"><h3>Rumo'Go</h3><span class="work-code">KM—02</span></div>
-              <p>Aplicação de mobilidade com planejamento de rotas rodoviárias, busca de pontos de interesse e navegação GPS. O rastreamento pelo celular exige consentimento explícito; o histórico preserva os pontos recebidos e identifica separadamente trechos reconstruídos após quedas de conexão.</p>
-              <div class="work-highlights"><span>Rotas rodoviárias</span><span>Pontos de interesse</span><span>Histórico de viagens</span><span>Fila offline</span></div>
-              <div class="work-footer">
-                <div class="work-tags"><span>Web</span><span>GPS</span><span>Mapas</span><span>Tempo real</span></div>
-                <span class="work-link work-link-muted">Projeto em desenvolvimento</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="engineering">
-            <div class="work-media work-media-simueng">
-              <div class="work-media-top"><span>SIMUENG / LABORATÓRIO DE ELETRÔNICA</span><span>03 — 05</span></div>
-              <div class="simueng-circuit">
-                <div class="simueng-wire wire-horizontal"></div>
-                <div class="simueng-wire wire-vertical"></div>
-                <div class="simueng-part part-battery"><b>+</b><small>5 V</small></div>
-                <div class="simueng-part part-resistor"><b>R</b><small>330 Ω</small></div>
-                <div class="simueng-part part-led"><b>LED</b><small>saída</small></div>
-                <div class="simueng-reading"><small>GUIA DO PRIMEIRO CIRCUITO</small><strong>Bateria → resistor → LED</strong></div>
-              </div>
-              <button class="work-view-button" type="button" data-open-details="simueng">Ver o fluxo do simulador <span>↗</span></button>
-              <span class="work-media-label">ESQUEMA ILUSTRATIVO — NÃO É CAPTURA DA INTERFACE</span>
-            </div>
-            <div class="work-content">
-              <div class="work-meta"><span>03 / EDUCAÇÃO E ELETRÔNICA</span><span class="work-status status-lab"><i></i> EXPERIMENTAL</span></div>
-              <div class="work-title-row"><h3>SimuEng</h3><span class="work-code">KM—03</span></div>
-              <p>Laboratório de eletrônica para estudar, simular e só depois construir. O primeiro guia monta bateria, resistor e LED em etapas; o motor verifica ligações, polaridade e situações como um LED queimado. Inclui aulas, catálogo de peças e programação de Raspberry Pi Pico e Raspberry Pi.</p>
-              <div class="work-highlights"><span>Simulação 2D e 3D</span><span>27 exemplos</span><span>MicroPython</span><span>Projetos guiados</span></div>
-              <div class="work-footer">
-                <div class="work-tags"><span>Eletrônica</span><span>Educação</span><span>Python</span></div>
-                <span class="work-link work-link-muted">Projeto em desenvolvimento</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="engineering">
-            <div class="work-media work-media-autoeng">
-              <img class="work-image" src="assets/projects/autoeng-workspace.jpg" alt="Captura real do AutoEng mostrando planta 2D, elementos da obra e painel de propriedades" loading="lazy">
-              <div class="work-media-top"><span>AUTOENG / ARQUITETURA & ENGENHARIA</span><span>04 — 05</span></div>
-              <button class="work-view-button" type="button" data-open-gallery="autoeng">Explorar 4 telas <span>↗</span></button>
-              <span class="work-media-label">CAPTURAS REAIS DO APLICATIVO</span>
-            </div>
-            <div class="work-content">
-              <div class="work-meta"><span>04 / ENGENHARIA DE EDIFICAÇÕES</span><span class="work-status status-build"><i></i> EM DESENVOLVIMENTO</span></div>
-              <div class="work-title-row"><h3>AutoEng</h3><span class="work-code">KM—04</span></div>
-              <p>Plataforma de projeto e execução em que paredes, ambientes, portas, tubulações, cabos e dispositivos compartilham o mesmo modelo. Planta 2D, corte e vista 3D derivam desse estado; medições, materiais, quantidades, orçamento e tarefas permanecem ligados aos elementos da obra.</p>
-              <div class="work-highlights"><span>Planta 2D + modelo 3D</span><span>Instalações conectadas</span><span>Medições de campo</span><span>PDF / DXF / CSV</span></div>
-              <div class="work-footer">
-                <div class="work-tags"><span>React</span><span>Three.js</span><span>FastAPI</span><span>SQLite</span></div>
-                <span class="work-link work-link-muted">Projeto em desenvolvimento</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="work-card work-card-lume" data-category="ai">
-            <div class="work-media work-media-lume">
-              <img class="work-image work-image-icon" src="assets/projects/lume-icon.png" alt="Ícone oficial do assistente LUME" loading="lazy">
-              <div class="work-media-top"><span>LUME / ASSISTENTE PESSOAL</span><span>05 — 05</span></div>
-              <button class="work-view-button" type="button" data-open-gallery="lume">Ver identidade do projeto <span>↗</span></button>
-              <span class="work-media-label">Ícone OFICIAL DO PROJETO</span>
-            </div>
-            <div class="work-content">
-              <div class="work-meta"><span>05 / INTELIGÊNCIA ARTIFICIAL</span><span class="work-status status-live"><i></i> DEMONSTRAÇÃO WEB</span></div>
-              <div class="work-title-row"><h3>LUME</h3><span class="work-code">KM—05</span></div>
-              <p>Assistente pessoal por voz e texto. Organiza tarefas, listas, notas, lembretes e timers; também consulta informações e abre ferramentas web. A edição desktop amplia o projeto com comandos no computador e possibilidade de usar modelos remotos ou locais.</p>
-              <div class="work-highlights"><span>Voz e texto</span><span>Memória local</span><span>Automação</span><span>Modelos locais</span></div>
-              <div class="work-footer">
-                <div class="work-tags"><span>Assistente</span><span>Desktop</span><span>IA</span><span>PWA</span></div>
-                <a class="work-link" href="https://joaomanop.github.io/assistente-lume/" target="_blank" rel="noreferrer">Abrir demonstração <b>↗</b></a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="work-note"><span>TRANSPARÊNCIA</span><p>As imagens do Milens e AutoEng são capturas reais dos aplicativos. No Rumo'Go, mostramos a identidade e o mapa base do projeto; no LUME, o ícone oficial. O SimuEng ainda não tem uma captura de tela disponível no repositório, por isso o cartão usa apenas um esquema explicativo identificado como ilustração.</p></div>
-
-      </section>
-
-      <section class="about-section" id="sobre">
-        <div class="section-kicker"><span class="kicker-rule"></span> 02 / SOBRE O TRABALHO</div>
-        <div class="about-layout">
-          <h2>Construção independente.<br><em>Visão de longo prazo.</em></h2>
-          <div class="about-copy">
-            <p class="about-lead">A Keymouse existe para transformar ideias em produtos concretos — entender o problema, estruturar a solução e evoluir cada parte com critério.</p>
-            <p>Os projetos passam por áreas diferentes, como criação audiovisual, mobilidade, educação, engenharia e inteligência artificial. À frente da criação e do desenvolvimento está João Manoel, que conduz cada iniciativa com foco em utilidade, identidade própria e espaço para crescer.</p>
-            <div class="about-signature"><span class="signature-mark">JM.</span><span>João Manoel<br><small>FUNDADOR · KEYMOUSE PRODUCTIONS</small></span></div>
-          </div>
-        </div>
-        <div class="working-principles">
-          <div><span>01</span><strong>Problema antes da ferramenta</strong><p>O produto começa pela necessidade que precisa resolver.</p></div>
-          <div><span>02</span><strong>Arquitetura que permite evoluir</strong><p>Organizar bem para não limitar o que pode vir depois.</p></div>
-          <div><span>03</span><strong>Experiência faz parte do sistema</strong><p>Uma função útil também precisa ser compreensível e agradável de usar.</p></div>
-        </div>
-      </section>
-
-      <section class="keymouse-section" id="keymouse">
-        <div class="keymouse-stamp" aria-hidden="true"><span>K</span><i>m</i><b>.</b></div>
-        <div class="keymouse-copy">
-          <div class="section-kicker"><span class="kicker-rule"></span> KEYMOUSE / 001 · NOSSA ESTRUTURA</div>
-          <h2>Uma marca.<br><em>Muitas possibilidades.</em></h2>
-          <p>A Keymouse Productions reúne criação, desenvolvimento e distribuição em uma mesma estrutura. Cada projeto tem público, finalidade e identidade próprios — a Keymouse dá continuidade ao trabalho por trás deles.</p>
-        </div>
-        <div class="keymouse-aside" aria-label="Etapas de desenvolvimento">
-          <div><small>01</small><span>IDEALIZAR</span><b>Encontrar a ideia.</b></div>
-          <div><small>02</small><span>DESENVOLVER</span><b>Transformar em produto.</b></div>
-          <div><small>03</small><span>DISTRIBUIR</span><b>Levar ao mundo.</b></div>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contato">
-        <div class="contact-topline"><div class="section-kicker"><span class="kicker-rule"></span> 03 / CONTATO</div><span>PORTAS ABERTAS PARA BOAS IDEIAS</span></div>
-        <div class="contact-main">
-          <h2>Tem uma ideia?<br><em>Vamos construir.</em></h2>
-          <a class="contact-button" href="https://github.com/JoaoManoP" target="_blank" rel="noreferrer">Conhecer no GitHub <span>↗</span></a>
-        </div>
-        <div class="contact-bottom"><span>GITHUB.COM / JOAOMANOP</span><span>JOÃO MANOEL — 2026</span></div>
-      </section>
-
-    <dialog class="project-viewer" id="projectViewer" aria-label="Galeria do projeto">
-      <div class="viewer-panel">
-        <header class="viewer-header">
-          <div><span class="viewer-kicker" id="viewerKicker">PROJETO</span><h2 id="viewerTitle">Galeria</h2></div>
-          <button type="button" class="viewer-close" id="viewerClose" aria-label="Fechar galeria">×</button>
-        </header>
-        <div class="viewer-image-stage" id="viewerImageStage">
-          <button type="button" class="viewer-arrow" id="viewerPrev" aria-label="Imagem anterior">‹</button>
-          <figure><img id="viewerImage" alt=""><figcaption id="viewerCaption"></figcaption></figure>
-          <button type="button" class="viewer-arrow" id="viewerNext" aria-label="Próxima imagem">›</button>
-        </div>
-        <div class="viewer-special" id="viewerSpecial" hidden></div>
-        <div class="viewer-bottom">
-          <div class="viewer-counter" id="viewerCounter"></div>
-          <div class="viewer-thumbnails" id="viewerThumbnails"></div>
+        <div class="hero-foot">
+          <span class="foot-mark">KM<span>—</span>001</span>
+          <span>CRIAR <b>·</b> DESENVOLVER <b>·</b> DISTRIBUIR</span>
         </div>
       </div>
-    </dialog>
 
-    </main>
+      <div class="hero-stage" aria-label="Projetos da Keymouse em destaque">
+        <div class="stage-note note-top"><span class="note-dot"></span> PROJETOS EM CONSTRUÇÃO E EVOLUÇÃO</div>
+        <div class="stage-back stage-back-lime"></div>
+        <div class="stage-back stage-back-violet"></div>
+        <figure class="stage-screen">
+          <div class="screen-top"><span class="screen-lights"><i></i><i></i><i></i></span><span>KEYMOUSE / PROJECT 001</span><span>↗</span></div>
+          <img src="https://milens.com.br/assets/shot-video-texto.jpg" data-fallback="assets/projects/milens-video.png" alt="Captura atual da interface do Milens em edição de vídeo" fetchpriority="high">
+          <figcaption><span>MILENS</span><b>01 / 03</b></figcaption>
+        </figure>
+        <div class="stage-mascot">
+          <img src="assets/keymouse-mascot.svg" alt="Mascote rato da Keymouse Productions">
+          <span>MADE BY<br>KEYMOUSE</span>
+        </div>
+        <div class="stage-sticker sticker-creative">CREATIVE<br>ENGINEERING</div>
+        <div class="stage-sticker sticker-studio">EST. 2026</div>
+        <div class="stage-index"><span>01</span><i></i><span>03</span></div>
+      </div>
+      <a class="scroll-cue" href="#projetos" aria-label="Rolar para projetos"><span></span> ROLE PARA DESCOBRIR</a>
+    </section>
 
-    <footer class="site-footer">
-      <a class="footer-identity" href="#top"><span class="identity-mark keymouse-mark" aria-hidden="true"><b>K</b><i></i><small>m</small></span><strong>KEYMOUSE PRODUCTIONS</strong></a>
-      <span>Estúdio independente de software e criação.</span>
-      <span>FUNDADO POR JOÃO MANOEL · 2026</span><a href="#top">VOLTAR AO INÍCIO ↑</a>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+    <section class="intro-line" aria-label="Sobre a Keymouse">
+      <p>Uma estrutura independente para <strong>criar</strong> o que ainda não existe, <strong>desenvolver</strong> o que precisa funcionar e <strong>distribuir</strong> o que merece chegar mais longe.</p>
+      <span class="intro-spark" aria-hidden="true">✳</span>
+    </section>
+
+    <section class="projects-section" id="projetos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-dark"><i></i> PORTFÓLIO <span>—</span> 2026</p>
+          <h2>O que estamos<br><em>colocando no mundo.</em></h2>
+        </div>
+        <p class="section-description">Três frentes diferentes. Uma mesma forma de trabalhar: entender o problema, construir com intenção e melhorar continuamente.</p>
+      </div>
+
+      <div class="project-controls">
+        <div class="filters" role="group" aria-label="Filtrar projetos">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todos <span>03</span></button>
+          <button class="filter-button" type="button" data-filter="creative" aria-pressed="false">Criação</button>
+          <button class="filter-button" type="button" data-filter="engineering" aria-pressed="false">Engenharia</button>
+          <button class="filter-button" type="button" data-filter="education" aria-pressed="false">Educação</button>
+        </div>
+        <span class="project-count" aria-live="polite">03 PROJETOS</span>
+      </div>
+
+      <div class="project-list">
+        <article class="project-card project-featured" data-category="creative">
+          <div class="project-visual visual-milens">
+            <div class="visual-meta"><span>01 / SOFTWARE CRIATIVO</span><span class="status status-live"><i></i> PRODUTO ATIVO</span></div>
+            <div class="milens-frame">
+              <img src="https://milens.com.br/assets/shot-video-texto.jpg" data-fallback="assets/projects/milens-video.png" alt="Interface do Milens com timeline e ferramentas de edição" loading="lazy">
+            </div>
+            <div class="visual-caption"><span>EDIÇÃO · COMPOSIÇÃO · MOTION</span><b>KM—01</b></div>
+            <span class="visual-number">01</span>
+            <button class="visual-open" type="button" data-gallery="milens" aria-label="Abrir galeria de imagens do Milens">VER GALERIA ↗</button>
+          </div>
+          <div class="project-info">
+            <div class="project-topline"><span>PRODUTO DA KEYMOUSE</span><span>WINDOWS / DESKTOP</span></div>
+            <div class="project-title"><h3>Milens</h3><span class="project-symbol symbol-milens">M.</span></div>
+            <p>Uma suíte criativa local-first que reúne vídeo, imagem, áudio e 3D em um mesmo fluxo de trabalho. Feita para quem quer editar, compor, animar e construir sem depender de uma coleção de ferramentas desconectadas.</p>
+            <div class="project-tags"><span>Vídeo & motion</span><span>Imagem</span><span>Áudio</span><span>3D</span><span>Plugins</span></div>
+            <div class="project-bottom">
+              <a class="project-link" href="https://milens.com.br/" target="_blank" rel="noopener noreferrer">Conhecer o Milens <b>↗</b></a>
+              <button class="text-button" type="button" data-gallery="milens">Explorar telas <b>＋</b></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-simueng" data-category="education">
+          <div class="project-visual visual-simueng">
+            <div class="visual-meta"><span>02 / EDUCAÇÃO & ELETRÔNICA</span><span class="status status-build"><i></i> EM EVOLUÇÃO</span></div>
+            <div class="simu-board" id="simuBoard">
+              <div class="simu-board-top"><span>SIMUENG LAB</span><span class="simu-state" id="simuState">CIRCUITO DESLIGADO</span></div>
+              <svg class="circuit-svg" viewBox="0 0 620 270" role="img" aria-label="Circuito didático com bateria de 5 volts, resistor de 330 ohms e LED">
+                <defs>
+                  <filter id="ledGlow"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <path class="wire" d="M94 128H176M246 128H376M434 128H520V218H94V128"/>
+                <path class="wire wire-top" d="M94 128V70H520V128"/>
+                <g class="battery-part">
+                  <path d="M92 103V153M111 113V143" stroke="#202631" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M80 128H94M111 128H125" stroke="#202631" stroke-width="4" stroke-linecap="round"/>
+                  <text x="97" y="178" text-anchor="middle">5 V</text>
+                </g>
+                <g class="resistor-part" transform="translate(176 94)">
+                  <path d="M0 34h14l13-23 22 46 22-46 22 46 13-23h14" fill="none" stroke="#202631" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+                  <text x="69" y="81" text-anchor="middle">330 Ω</text>
+                </g>
+                <g class="led-part" transform="translate(376 91)">
+                  <path class="led-body" d="M0 37h19l34-34v68L19 37H0Z" fill="#F4EEDF" stroke="#202631" stroke-width="5" stroke-linejoin="round"/>
+                  <path d="M53 3v68" stroke="#202631" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M31 -2l-9-16M48 -4l-4-20" class="led-ray"/>
+                  <text x="40" y="101" text-anchor="middle">LED</text>
+                </g>
+                <g class="circuit-dots"><circle cx="94" cy="128" r="6"/><circle cx="520" cy="128" r="6"/><circle cx="520" cy="218" r="6"/></g>
+              </svg>
+              <div class="simu-board-foot"><span>FONTE DC / 5 V</span><span>RESISTOR / 330 Ω</span><span>SAÍDA / LED</span></div>
+              <button class="circuit-switch" type="button" id="circuitToggle" aria-pressed="false"><i></i><span>ENERGIZAR CIRCUITO</span><b>↗</b></button>
+            </div>
+            <div class="visual-caption"><span>SIMULAÇÃO DIDÁTICA INTERATIVA</span><b>KM—02</b></div>
+            <span class="visual-number">02</span>
+          </div>
+          <div class="project-info">
+            <div class="project-topline"><span>LABORATÓRIO DE APRENDIZAGEM</span><span>WEB / LOCAL</span></div>
+            <div class="project-title"><h3>SimuEng</h3><span class="project-symbol symbol-simueng">S.</span></div>
+            <p>Um laboratório para estudar eletrônica antes de montar no mundo físico. O simulador trabalha com circuitos 2D e 3D, aulas guiadas, catálogo de componentes e programação de placas como Raspberry Pi Pico.</p>
+            <div class="project-tags"><span>Circuitos</span><span>Simulação 2D/3D</span><span>MicroPython</span><span>Projetos guiados</span></div>
+            <div class="project-bottom">
+              <span class="project-note">Aprender. Testar. Construir.</span>
+              <button class="text-button" type="button" id="circuitReset">Reiniciar circuito <b>↻</b></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-autoeng" data-category="engineering">
+          <div class="project-visual visual-autoeng">
+            <div class="visual-meta"><span>03 / ARQUITETURA & ENGENHARIA</span><span class="status status-build"><i></i> EM DESENVOLVIMENTO</span></div>
+            <div class="autoeng-image-wrap">
+              <img src="assets/projects/autoeng-workspace.jpg" alt="Captura do espaço de trabalho AutoEng com planta 2D e painéis de propriedades" loading="lazy">
+              <div class="autoeng-chip"><span>PLANTA 2D</span><span>CORTE</span><span>3D</span></div>
+            </div>
+            <div class="visual-caption"><span>MODELO CONECTADO DA OBRA</span><b>KM—03</b></div>
+            <span class="visual-number">03</span>
+            <button class="visual-open" type="button" data-gallery="autoeng">VER GALERIA ↗</button>
+          </div>
+          <div class="project-info">
+            <div class="project-topline"><span>PLATAFORMA TÉCNICA</span><span>DESKTOP / WEB</span></div>
+            <div class="project-title"><h3>AutoEng</h3><span class="project-symbol symbol-autoeng">A.</span></div>
+            <p>Uma plataforma que conecta arquitetura, instalações e execução. Planta 2D, corte e modelo 3D derivam do mesmo projeto; medições, materiais, quantidades, orçamento e tarefas continuam ligados aos elementos da obra.</p>
+            <div class="project-tags"><span>Planta 2D & 3D</span><span>Instalações</span><span>Medições</span><span>Materiais</span><span>Execução</span></div>
+            <div class="project-bottom">
+              <span class="project-note">Do levantamento à execução.</span>
+              <button class="text-button" type="button" data-gallery="autoeng">Explorar telas <b>＋</b></button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="project-footnote"><span>NOTA DE PORTFÓLIO</span> As capturas do Milens e AutoEng mostram interfaces reais dos projetos. O circuito do SimuEng é uma demonstração vetorial interativa de um dos exercícios introdutórios, não uma captura de tela do aplicativo.</p>
+    </section>
+
+    <section class="studio-section" id="estudio">
+      <div class="studio-art">
+        <div class="studio-art-ring ring-one"></div>
+        <div class="studio-art-ring ring-two"></div>
+        <img src="assets/keymouse-mascot.svg" alt="Mascote ilustrada da Keymouse Productions" loading="lazy">
+        <span class="studio-art-label">K / M<br>ORIGINAL<br>CHARACTER</span>
+        <span class="studio-art-star">✳</span>
+      </div>
+      <div class="studio-copy">
+        <p class="eyebrow"><i></i> QUEM ESTÁ POR TRÁS</p>
+        <h2>Não somos uma<br>fábrica de ideias.<br><em>Somos um estúdio<br>que as constrói.</em></h2>
+        <p>A Keymouse Productions é uma estrutura independente dedicada à criação, desenvolvimento e distribuição de produtos próprios. Cada projeto tem seu público, sua linguagem e seu propósito — o estúdio conecta a pesquisa, a tecnologia e o cuidado necessários para fazê-los evoluir.</p>
+        <div class="studio-signature">
+          <div class="signature-mark">JM.</div>
+          <div><strong>João Manoel</strong><span>FUNDADOR · KEYMOUSE PRODUCTIONS</span></div>
+        </div>
+      </div>
+      <div class="studio-side-note">INDEPENDENTE<br>POR ESCOLHA.<br>AMBICIOSO<br>NO TRABALHO.</div>
+    </section>
+
+    <section class="process-section" id="processo">
+      <div class="section-heading process-heading">
+        <div><p class="eyebrow eyebrow-dark"><i></i> NOSSO JEITO DE FAZER</p><h2>Da primeira ideia<br>à <em>próxima versão.</em></h2></div>
+        <p class="section-description">Um processo que não termina no lançamento. O produto precisa continuar útil, consistente e pronto para crescer.</p>
+      </div>
+      <div class="process-steps">
+        <article><span class="step-number">01</span><div class="step-icon step-idea">✳</div><h3>Imaginar</h3><p>Entender a necessidade, pesquisar possibilidades e definir o que vale a pena construir.</p><span class="step-tag">PESQUISA & CONCEITO</span></article>
+        <article><span class="step-number">02</span><div class="step-icon step-build">⌘</div><h3>Desenvolver</h3><p>Transformar intenção em arquitetura, interface, código e funcionalidades que funcionam.</p><span class="step-tag">PRODUTO & ENGENHARIA</span></article>
+        <article><span class="step-number">03</span><div class="step-icon step-refine">↗</div><h3>Refinar</h3><p>Testar, observar o uso, corrigir o que não funciona e melhorar cada detalhe importante.</p><span class="step-tag">QUALIDADE & EVOLUÇÃO</span></article>
+        <article><span class="step-number">04</span><div class="step-icon step-release">✦</div><h3>Distribuir</h3><p>Preparar o produto para chegar às pessoas, com suporte, documentação e continuidade.</p><span class="step-tag">LANÇAMENTO & SUPORTE</span></article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+      <div class="contact-stamp" aria-hidden="true"><img src="assets/mark.svg" alt=""></div>
+      <div class="contact-copy">
+        <p class="eyebrow"><i></i> CONTATO / COLABORAÇÃO</p>
+        <h2>Tem uma ideia<br>que merece <em>existir?</em></h2>
+        <p>Conversas, parcerias e oportunidades de colaboração começam por aqui.</p>
+      </div>
+      <a class="contact-link" href="https://github.com/JoaoManoP" target="_blank" rel="noopener noreferrer">Encontrar a Keymouse <span>↗</span></a>
+      <div class="contact-doodle" aria-hidden="true">LET'S<br>MAKE<br>IT REAL<span>!</span></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top"><img src="assets/mark.svg" alt="" width="36" height="36"><span>KEYMOUSE<small>PRODUCTIONS</small></span></a>
+    <span class="footer-center">ESTÚDIO INDEPENDENTE · BRASIL</span>
+    <span class="footer-right">© 2026 KEYMOUSE PRODUCTIONS</span>
+    <a class="back-top" href="#top" aria-label="Voltar ao topo">↑</a>
+  </footer>
+
+  <dialog class="gallery-dialog" id="galleryDialog" aria-labelledby="galleryTitle">
+    <div class="gallery-shell">
+      <div class="gallery-header">
+        <div><span class="gallery-kicker" id="galleryKicker">KEYMOUSE / PROJETO</span><h2 id="galleryTitle">Galeria</h2></div>
+        <button class="gallery-close" id="galleryClose" type="button" aria-label="Fechar galeria">×</button>
+      </div>
+      <div class="gallery-main">
+        <button class="gallery-arrow" id="galleryPrev" type="button" aria-label="Imagem anterior">‹</button>
+        <figure class="gallery-figure"><img id="galleryImage" alt=""><figcaption id="galleryCaption"></figcaption></figure>
+        <button class="gallery-arrow" id="galleryNext" type="button" aria-label="Próxima imagem">›</button>
+      </div>
+      <div class="gallery-bottom"><span id="galleryCounter">01 / 04</span><div class="gallery-thumbs" id="galleryThumbs"></div></div>
+    </div>
+  </dialog>
+
+  <script src="script.js?v=keymouse-zero-1"></script>
 </body>
 </html>
