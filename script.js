@@ -174,4 +174,74 @@
   });
 
   updateProjectCount();
+
+  // Destaques entram conforme a leitura, sem esconder conteúdo para quem desativa movimento.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(".projects-section, .work-card, .about-section, .keymouse-section, .contact-section");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    revealTargets.forEach((element) => element.classList.add("motion-ready"));
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in-view");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
+
+  // A navegação acompanha a seção em foco.
+  const navigationLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const navigationSections = navigationLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  const updateNavigation = () => {
+    let current = navigationSections[0];
+    navigationSections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= 150) current = section;
+    });
+    navigationLinks.forEach((link) => {
+      const active = current && link.getAttribute("href") === "#" + current.id;
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  // Indicador fino de progresso da página.
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.append(progress);
+  let scrollFrame = 0;
+  const updateScrollState = () => {
+    if (scrollFrame) return;
+    scrollFrame = window.requestAnimationFrame(() => {
+      scrollFrame = 0;
+      const range = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = range > 0 ? Math.min(1, Math.max(0, window.scrollY / range)) : 0;
+      progress.style.setProperty("--progress", ratio);
+      updateNavigation();
+    });
+  };
+  window.addEventListener("scroll", updateScrollState, { passive: true });
+  window.addEventListener("resize", updateScrollState);
+  updateScrollState();
+
+  // Inclinação curta nos cartões em dispositivos com ponteiro preciso.
+  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    projectCards.forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const bounds = card.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        card.style.setProperty("--tilt-x", (x * 2.2).toFixed(2) + "deg");
+        card.style.setProperty("--tilt-y", (-y * 2.2).toFixed(2) + "deg");
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+      });
+    });
+  }
+
 })();
