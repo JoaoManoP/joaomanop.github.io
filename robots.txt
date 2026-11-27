@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://joaomanop.github.io/sitemap.xml
