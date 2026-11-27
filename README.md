@@ -1,1 +1,19 @@
-# Keymouse Productions — Site institucional\n\nSite institucional da Keymouse Productions, estúdio independente de software, tecnologia e criação.\n\n## Páginas\n- / — visão geral do estúdio e dos produtos.\n- /products/ — catálogo de produtos com filtros por área.\n- /products/milens/ — suíte criativa Milens.\n- /products/simueng/ — laboratório educacional SimuEng.\n- /products/autoeng/ — plataforma técnica AutoEng.\n- /studio/ — apresentação do estúdio, atuação e processo.\n- /journal/ — caderno editorial e notas de produto.\n- /support/ — central de informações e perguntas frequentes.\n\n## Imagens\nAs páginas utilizam capturas locais em assets/projects/. A imagem conceitual do SimuEng está identificada como ilustração, não captura do aplicativo.\n\n## Tecnologia\nSite estático em HTML, CSS e JavaScript, sem etapa de build ou dependência de framework. Publicação pelo GitHub Pages na branch main, diretório raiz.\n\n- assets/enterprise.css — sistema visual compartilhado.\n- assets/enterprise.js — navegação responsiva, filtros e acordeões.\n- assets/mark.svg — símbolo da Keymouse.\n- assets/keymouse-mascot.svg — mascote do estúdio.\n- assets/projects/ — imagens dos projetos.\n- sitemap.xml e robots.txt — arquivos de indexação.
+# Keymouse Productions — Site institucional
+
+Site institucional da Keymouse Productions, estúdio independente de software, tecnologia e criação.
+
+## Páginas
+- / — visão geral do estúdio e dos produtos.
+- /products/ — catálogo de produtos com filtros por área.
+- /products/milens/ — suíte criativa Milens.
+- /products/simueng/ — laboratório educacional SimuEng.
+- /products/autoeng/ — plataforma técnica AutoEng.
+- /studio/ — apresentação do estúdio, atuação e processo.
+- /journal/ — caderno editorial e notas de produto.
+- /support/ — central de informações e perguntas frequentes.
+
+## Imagens
+As páginas utilizam capturas locais em assets/projects/. A imagem conceitual do SimuEng está identificada como ilustração, não captura do aplicativo.
+
+## Tecnologia
+Site estático em HTML, CSS e JavaScript, sem etapa de build ou dependência de framework. Publicação pelo GitHub Pages, branch main, diretório raiz.
