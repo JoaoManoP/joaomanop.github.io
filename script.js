@@ -1,21 +1,33 @@
 (() => {
-  const filters = document.querySelectorAll(".filter-button");
-  const cards = document.querySelectorAll(".project-card");
+  const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
+  const projectCards = Array.from(document.querySelectorAll(".project-card"));
+  const projectCount = document.querySelector(".project-count");
 
-  filters.forEach((button) => {
+  const updateCount = () => {
+    const visible = projectCards.filter((card) => !card.classList.contains("is-hidden")).length;
+    if (projectCount) {
+      projectCount.textContent = String(visible).padStart(2, "0") + " PROJETOS SELECIONADOS";
+    }
+  };
+
+  filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const selected = button.dataset.filter;
+      const selectedCategory = button.dataset.filter;
 
-      filters.forEach((item) => {
-        const active = item === button;
-        item.classList.toggle("is-active", active);
-        item.setAttribute("aria-pressed", String(active));
+      filterButtons.forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
       });
 
-      cards.forEach((card) => {
-        const visible = selected === "all" || card.dataset.category === selected;
-        card.classList.toggle("is-hidden", !visible);
+      projectCards.forEach((card) => {
+        const shouldShow = selectedCategory === "all" || card.dataset.category === selectedCategory;
+        card.classList.toggle("is-hidden", !shouldShow);
       });
+
+      updateCount();
     });
   });
+
+  updateCount();
 })();
