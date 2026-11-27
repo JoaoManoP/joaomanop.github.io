@@ -1,52 +1,20 @@
 (() => {
-  const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
-  const projectCards = Array.from(document.querySelectorAll(".work-card"));
+  const byId = (id) => document.getElementById(id);
+
+  // Fallback local quando uma imagem remota do produto não estiver disponível.
+  document.querySelectorAll("img[data-fallback]").forEach((image) => {
+    image.addEventListener("error", () => {
+      const fallback = image.dataset.fallback;
+      if (fallback && image.src !== new URL(fallback, window.location.href).href) {
+        image.src = fallback;
+      }
+    }, { once: true });
+  });
+
+  // Filtros do portfólio.
+  const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+  const projectCards = Array.from(document.querySelectorAll(".project-card"));
   const projectCount = document.querySelector(".project-count");
-
-  const viewer = document.getElementById("projectViewer");
-  const viewerTitle = document.getElementById("viewerTitle");
-  const viewerKicker = document.getElementById("viewerKicker");
-  const viewerImageStage = document.getElementById("viewerImageStage");
-  const viewerImage = document.getElementById("viewerImage");
-  const viewerCaption = document.getElementById("viewerCaption");
-  const viewerSpecial = document.getElementById("viewerSpecial");
-  const viewerCounter = document.getElementById("viewerCounter");
-  const viewerThumbnails = document.getElementById("viewerThumbnails");
-  const previousButton = document.getElementById("viewerPrev");
-  const nextButton = document.getElementById("viewerNext");
-  const closeButton = document.getElementById("viewerClose");
-
-  const projectLabels = {
-    milens: { title: "Milens", kicker: "SUÍTE DE CRIAÇÃO / CAPTURAS DO APLICATIVO" },
-    rumogo: { title: "Rumo'Go", kicker: "IDENTIDADE VISUAL E MAPA DO PROJETO" },
-    autoeng: { title: "AutoEng", kicker: "ARQUITETURA E ENGENHARIA / CAPTURAS DO APLICATIVO" },
-    lume: { title: "LUME", kicker: "ASSISTENTE PESSOAL / IDENTIDADE DO PROJETO" }
-  };
-
-  const projectGalleries = {
-    milens: [
-      { src: "assets/projects/milens-video.png", name: "Edição de vídeo — monitor, propriedades e timeline multitrilha" },
-      { src: "assets/projects/milens-composicao.png", name: "Composição — controles de animação, keyframes e curvas" },
-      { src: "assets/projects/milens-audio.png", name: "Áudio — mixer, medição de loudness e trilhas" },
-      { src: "assets/projects/milens-plugins.png", name: "Efeitos — biblioteca de plugins e pré-visualização" }
-    ],
-    rumogo: [
-      { src: "assets/projects/rumogo-logo.png", name: "Identidade visual oficial do Rumo'Go" },
-      { src: "assets/projects/rumogo-mapa.webp", name: "Mapa base utilizado no projeto de navegação" }
-    ],
-    autoeng: [
-      { src: "assets/projects/autoeng-workspace.jpg", name: "Workspace — planta 2D e elementos de arquitetura e instalações" },
-      { src: "assets/projects/autoeng-3d.jpg", name: "Modelo 3D derivado da planta do projeto" },
-      { src: "assets/projects/autoeng-materiais.jpg", name: "Materiais — catálogo, quantidades e orçamento" },
-      { src: "assets/projects/autoeng-sistemas.jpg", name: "Sistemas — esquema de conexões hidráulicas e instalações" }
-    ],
-    lume: [
-      { src: "assets/projects/lume-icon.png", name: "Ícone oficial do assistente LUME" }
-    ]
-  };
-
-  let activeGallery = [];
-  let activeIndex = 0;
 
   const updateProjectCount = () => {
     if (!projectCount) return;
@@ -56,114 +24,158 @@
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const selectedCategory = button.dataset.filter;
+      const selected = button.dataset.filter;
       filterButtons.forEach((item) => {
-        const isActive = item === button;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
+        const active = item === button;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
       });
       projectCards.forEach((card) => {
-        const shouldShow = selectedCategory === "all" || card.dataset.category === selectedCategory;
-        card.classList.toggle("is-hidden", !shouldShow);
+        const visible = selected === "all" || card.dataset.category === selected;
+        card.classList.toggle("is-hidden", !visible);
       });
       updateProjectCount();
     });
   });
 
-  const renderThumbnailStrip = () => {
-    viewerThumbnails.replaceChildren();
-    activeGallery.forEach((item, index) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "viewer-thumb" + (index === activeIndex ? " is-active" : "");
-      button.setAttribute("aria-label", "Ver imagem " + (index + 1) + ": " + item.name);
-      const image = document.createElement("img");
-      image.src = item.src;
-      image.alt = "";
-      button.append(image);
-      button.addEventListener("click", () => setGalleryIndex(index));
-      viewerThumbnails.append(button);
-    });
-    viewerThumbnails.hidden = activeGallery.length < 2;
+  // Demonstração simples do circuito introdutório do SimuEng.
+  const simuBoard = byId("simuBoard");
+  const circuitToggle = byId("circuitToggle");
+  const circuitReset = byId("circuitReset");
+  const simuState = byId("simuState");
+
+  const setCircuitPower = (powered) => {
+    if (!simuBoard || !circuitToggle || !simuState) return;
+    simuBoard.dataset.powered = String(powered);
+    circuitToggle.setAttribute("aria-pressed", String(powered));
+    const label = circuitToggle.querySelector("span");
+    if (label) label.textContent = powered ? "DESLIGAR CIRCUITO" : "ENERGIZAR CIRCUITO";
+    simuState.textContent = powered ? "CIRCUITO ENERGIZADO" : "CIRCUITO DESLIGADO";
+  };
+
+  circuitToggle?.addEventListener("click", () => {
+    setCircuitPower(simuBoard?.dataset.powered !== "true");
+  });
+  circuitReset?.addEventListener("click", () => setCircuitPower(false));
+
+  // Galerias reais do Milens e do AutoEng.
+  const galleryData = {
+    milens: {
+      title: "Milens",
+      kicker: "KEYMOUSE / SOFTWARE CRIATIVO",
+      images: [
+        { src: "https://milens.com.br/assets/shot-video-texto.jpg", fallback: "assets/projects/milens-video.png", caption: "Edição de vídeo e animação de texto na interface do Milens." },
+        { src: "https://milens.com.br/assets/shot-composicao.jpg", fallback: "assets/projects/milens-composicao.png", caption: "Composição, propriedades e controle de animação." },
+        { src: "https://milens.com.br/assets/shot-mixer.jpg", fallback: "assets/projects/milens-audio.png", caption: "Área de áudio, mixer e ferramentas de tratamento." },
+        { src: "https://milens.com.br/assets/shot-3d-mockup.jpg", fallback: "assets/projects/milens-plugins.png", caption: "Ferramentas de 3D e criação de mockups." }
+      ]
+    },
+    autoeng: {
+      title: "AutoEng",
+      kicker: "KEYMOUSE / ARQUITETURA & ENGENHARIA",
+      images: [
+        { src: "assets/projects/autoeng-workspace.jpg", caption: "Espaço de trabalho com planta 2D e painel de propriedades." },
+        { src: "assets/projects/autoeng-3d.jpg", caption: "Vista 3D do modelo conectado à planta." },
+        { src: "assets/projects/autoeng-sistemas.jpg", caption: "Sistemas e instalações ligados aos elementos do projeto." },
+        { src: "assets/projects/autoeng-materiais.jpg", caption: "Materiais, peças e quantidades associados à obra." }
+      ]
+    }
+  };
+
+  const dialog = byId("galleryDialog");
+  const galleryTitle = byId("galleryTitle");
+  const galleryKicker = byId("galleryKicker");
+  const galleryImage = byId("galleryImage");
+  const galleryCaption = byId("galleryCaption");
+  const galleryCounter = byId("galleryCounter");
+  const galleryThumbs = byId("galleryThumbs");
+  const galleryPrev = byId("galleryPrev");
+  const galleryNext = byId("galleryNext");
+  const galleryClose = byId("galleryClose");
+
+  let activeGallery = [];
+  let activeIndex = 0;
+
+  const renderGallery = () => {
+    if (!activeGallery.length || !galleryImage) return;
+    const item = activeGallery[activeIndex];
+    galleryImage.src = item.src;
+    galleryImage.alt = item.caption;
+    galleryImage.onerror = null;
+    if (item.fallback) {
+      galleryImage.onerror = () => {
+        galleryImage.onerror = null;
+        galleryImage.src = item.fallback;
+      };
+    }
+    if (galleryCaption) galleryCaption.textContent = item.caption;
+    if (galleryCounter) {
+      galleryCounter.textContent =
+        String(activeIndex + 1).padStart(2, "0") + " / " +
+        String(activeGallery.length).padStart(2, "0");
+    }
+    if (galleryPrev) galleryPrev.disabled = activeGallery.length < 2;
+    if (galleryNext) galleryNext.disabled = activeGallery.length < 2;
+    if (galleryThumbs) {
+      Array.from(galleryThumbs.children).forEach((thumb, index) => {
+        const selected = index === activeIndex;
+        thumb.classList.toggle("is-active", selected);
+        thumb.setAttribute("aria-pressed", String(selected));
+      });
+      galleryThumbs.querySelector(".is-active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
   };
 
   const setGalleryIndex = (index) => {
     if (!activeGallery.length) return;
     activeIndex = (index + activeGallery.length) % activeGallery.length;
-    const item = activeGallery[activeIndex];
-
-    viewerImage.src = item.src;
-    viewerImage.alt = item.name;
-    viewerCaption.textContent = item.name;
-    viewerCounter.textContent =
-      String(activeIndex + 1).padStart(2, "0") + " / " +
-      String(activeGallery.length).padStart(2, "0");
-
-    previousButton.disabled = activeGallery.length < 2;
-    nextButton.disabled = activeGallery.length < 2;
-
-    Array.from(viewerThumbnails.children).forEach((thumbnail, thumbnailIndex) => {
-      thumbnail.classList.toggle("is-active", thumbnailIndex === activeIndex);
-    });
-    viewerThumbnails.querySelector(".is-active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    renderGallery();
   };
 
-  const openGallery = (project) => {
-    const config = projectLabels[project];
-    const gallery = projectGalleries[project] || [];
-    if (!config || !gallery.length) return;
-
-    activeGallery = gallery;
+  const openGallery = (name) => {
+    const data = galleryData[name];
+    if (!data || !dialog || typeof dialog.showModal !== "function") return;
+    activeGallery = data.images;
     activeIndex = 0;
-    viewerTitle.textContent = config.title;
-    viewerKicker.textContent = config.kicker;
-    viewerImageStage.hidden = false;
-    viewerSpecial.hidden = true;
-    renderThumbnailStrip();
-    setGalleryIndex(0);
-    viewer.showModal();
-  };
+    galleryTitle.textContent = data.title;
+    galleryKicker.textContent = data.kicker;
+    galleryThumbs.replaceChildren();
 
-  const openSimuEngDetails = () => {
-    activeGallery = [];
-    viewerTitle.textContent = "SimuEng";
-    viewerKicker.textContent = "COMO O PRIMEIRO GUIA DE CIRCUITO FUNCIONA";
-    viewerImageStage.hidden = true;
-    viewerThumbnails.hidden = true;
-    viewerCounter.textContent = "FLUXO DIDÁTICO";
-    viewerSpecial.hidden = false;
-    viewerSpecial.innerHTML = `
-      <p class="viewer-special-copy">O guia inicial do SimuEng ajuda a montar um circuito simples em etapas. O motor verifica as conexões e explica o resultado antes de o aluno construir o circuito físico.</p>
-      <div class="viewer-flow" aria-label="Etapas do primeiro circuito">
-        <div class="viewer-flow-step"><strong>Bateria</strong><small>5 V</small></div>
-        <span class="viewer-flow-arrow" aria-hidden="true">→</span>
-        <div class="viewer-flow-step"><strong>Resistor</strong><small>330 Ω</small></div>
-        <span class="viewer-flow-arrow" aria-hidden="true">→</span>
-        <div class="viewer-flow-step"><strong>LED</strong><small>Polaridade verificada</small></div>
-      </div>
-      <p class="viewer-note">O simulador também identifica situações como LED invertido ou queimado. Este diagrama explica o fluxo; não é uma captura de tela do aplicativo.</p>
-    `;
-    viewer.showModal();
-  };
-
-  document.querySelectorAll("[data-open-gallery]").forEach((button) => {
-    button.addEventListener("click", () => openGallery(button.dataset.openGallery));
-  });
-  document.querySelectorAll("[data-open-details]").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (button.dataset.openDetails === "simueng") openSimuEngDetails();
+    activeGallery.forEach((item, index) => {
+      const thumb = document.createElement("button");
+      thumb.type = "button";
+      thumb.className = "gallery-thumb";
+      thumb.setAttribute("aria-label", "Ver imagem " + (index + 1) + ": " + item.caption);
+      thumb.setAttribute("aria-pressed", "false");
+      const image = document.createElement("img");
+      image.src = item.src;
+      image.alt = "";
+      image.loading = "lazy";
+      if (item.fallback) {
+        image.addEventListener("error", () => {
+          image.src = item.fallback;
+        }, { once: true });
+      }
+      thumb.append(image);
+      thumb.addEventListener("click", () => setGalleryIndex(index));
+      galleryThumbs.append(thumb);
     });
-  });
 
-  previousButton.addEventListener("click", () => setGalleryIndex(activeIndex - 1));
-  nextButton.addEventListener("click", () => setGalleryIndex(activeIndex + 1));
-  closeButton.addEventListener("click", () => viewer.close());
+    dialog.showModal();
+    renderGallery();
+  };
 
-  viewer.addEventListener("click", (event) => {
-    if (event.target === viewer) viewer.close();
+  document.querySelectorAll("[data-gallery]").forEach((button) => {
+    button.addEventListener("click", () => openGallery(button.dataset.gallery));
   });
-  viewer.addEventListener("keydown", (event) => {
-    if (!viewer.open || viewerImageStage.hidden) return;
+  galleryPrev?.addEventListener("click", () => setGalleryIndex(activeIndex - 1));
+  galleryNext?.addEventListener("click", () => setGalleryIndex(activeIndex + 1));
+  galleryClose?.addEventListener("click", () => dialog?.close());
+
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog?.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
       setGalleryIndex(activeIndex - 1);
@@ -173,75 +185,63 @@
     }
   });
 
-  updateProjectCount();
-
-  // Destaques entram conforme a leitura, sem esconder conteúdo para quem desativa movimento.
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealTargets = document.querySelectorAll(".projects-section, .work-card, .about-section, .keymouse-section, .contact-section");
-  if ("IntersectionObserver" in window && !reduceMotion) {
-    revealTargets.forEach((element) => element.classList.add("motion-ready"));
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-in-view");
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
-    revealTargets.forEach((element) => revealObserver.observe(element));
-  }
-
-  // A navegação acompanha a seção em foco.
-  const navigationLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-  const navigationSections = navigationLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
-  const updateNavigation = () => {
-    let current = navigationSections[0];
-    navigationSections.forEach((section) => {
-      if (section.getBoundingClientRect().top <= 150) current = section;
+  // Menu compacto no celular.
+  const menuToggle = byId("menuToggle");
+  const mainNav = byId("mainNav");
+  menuToggle?.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    menuToggle.setAttribute("aria-expanded", String(open));
+    mainNav?.classList.toggle("is-open", open);
+  });
+  mainNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle?.setAttribute("aria-expanded", "false");
+      mainNav.classList.remove("is-open");
     });
-    navigationLinks.forEach((link) => {
-      const active = current && link.getAttribute("href") === "#" + current.id;
-      if (active) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
-    });
-  };
+  });
 
-  // Indicador fino de progresso da página.
-  const progress = document.createElement("div");
-  progress.className = "scroll-progress";
-  progress.setAttribute("aria-hidden", "true");
-  document.body.append(progress);
+  // Barra de progresso e navegação contextual.
+  const progress = document.querySelector(".scroll-progress");
+  const navLinks = Array.from(document.querySelectorAll(".main-nav a[href^='#']"));
+  const navTargets = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
   let scrollFrame = 0;
-  const updateScrollState = () => {
+
+  const updateScroll = () => {
     if (scrollFrame) return;
     scrollFrame = window.requestAnimationFrame(() => {
       scrollFrame = 0;
       const range = document.documentElement.scrollHeight - window.innerHeight;
       const ratio = range > 0 ? Math.min(1, Math.max(0, window.scrollY / range)) : 0;
-      progress.style.setProperty("--progress", ratio);
-      updateNavigation();
+      progress?.style.setProperty("transform", "scaleX(" + ratio + ")");
+      let current = null;
+      navTargets.forEach((section) => {
+        if (section.getBoundingClientRect().top <= 150) current = section;
+      });
+      navLinks.forEach((link) => {
+        const active = current && link.getAttribute("href") === "#" + current.id;
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
     });
   };
-  window.addEventListener("scroll", updateScrollState, { passive: true });
-  window.addEventListener("resize", updateScrollState);
-  updateScrollState();
+  window.addEventListener("scroll", updateScroll, { passive: true });
+  window.addEventListener("resize", updateScroll);
+  updateScroll();
 
-  // Inclinação curta nos cartões em dispositivos com ponteiro preciso.
-  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    projectCards.forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const bounds = card.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-        card.style.setProperty("--tilt-x", (x * 2.2).toFixed(2) + "deg");
-        card.style.setProperty("--tilt-y", (-y * 2.2).toFixed(2) + "deg");
+  // Entradas discretas ao rolar; sem ocultar a página quando o recurso não existe.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(".intro-line, .section-heading, .project-card, .studio-section, .process-steps article, .contact-section");
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    revealTargets.forEach((element) => element.classList.add("reveal-ready"));
+    const observer = new IntersectionObserver((entries, activeObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        activeObserver.unobserve(entry.target);
       });
-      card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--tilt-x", "0deg");
-        card.style.setProperty("--tilt-y", "0deg");
-      });
-    });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    revealTargets.forEach((element) => observer.observe(element));
   }
 
+  updateProjectCount();
 })();
