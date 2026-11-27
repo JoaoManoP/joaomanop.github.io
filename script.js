@@ -23,7 +23,28 @@
     lume: { title: "LUME", kicker: "ASSISTENTE PESSOAL / IDENTIDADE DO PROJETO" }
   };
 
-  let projectMedia = null;
+  const projectGalleries = {
+    milens: [
+      { src: "assets/projects/milens-video.png", name: "Edição de vídeo — monitor, propriedades e timeline multitrilha" },
+      { src: "assets/projects/milens-composicao.png", name: "Composição — controles de animação, keyframes e curvas" },
+      { src: "assets/projects/milens-audio.png", name: "Áudio — mixer, medição de loudness e trilhas" },
+      { src: "assets/projects/milens-plugins.png", name: "Efeitos — biblioteca de plugins e pré-visualização" }
+    ],
+    rumogo: [
+      { src: "assets/projects/rumogo-logo.png", name: "Identidade visual oficial do Rumo'Go" },
+      { src: "assets/projects/rumogo-mapa.webp", name: "Mapa base utilizado no projeto de navegação" }
+    ],
+    autoeng: [
+      { src: "assets/projects/autoeng-workspace.jpg", name: "Workspace — planta 2D e elementos de arquitetura e instalações" },
+      { src: "assets/projects/autoeng-3d.jpg", name: "Modelo 3D derivado da planta do projeto" },
+      { src: "assets/projects/autoeng-materiais.jpg", name: "Materiais — catálogo, quantidades e orçamento" },
+      { src: "assets/projects/autoeng-sistemas.jpg", name: "Sistemas — esquema de conexões hidráulicas e instalações" }
+    ],
+    lume: [
+      { src: "assets/projects/lume-icon.png", name: "Ícone oficial do assistente LUME" }
+    ]
+  };
+
   let activeGallery = [];
   let activeIndex = 0;
 
@@ -36,49 +57,18 @@
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const selectedCategory = button.dataset.filter;
-
       filterButtons.forEach((item) => {
         const isActive = item === button;
         item.classList.toggle("is-active", isActive);
         item.setAttribute("aria-pressed", String(isActive));
       });
-
       projectCards.forEach((card) => {
         const shouldShow = selectedCategory === "all" || card.dataset.category === selectedCategory;
         card.classList.toggle("is-hidden", !shouldShow);
       });
-
       updateProjectCount();
     });
   });
-
-  const asDataUrl = (item) => `data:${item.mime};base64,${item.data}`;
-
-  const parsePreviewKey = (value) => {
-    const [project, indexText] = value.split(":");
-    return { project, index: Number(indexText || 0) };
-  };
-
-  const loadProjectMedia = async () => {
-    try {
-      const response = await fetch("assets/project-media.json", { cache: "force-cache" });
-      if (!response.ok) throw new Error("Não foi possível carregar as imagens dos projetos.");
-      projectMedia = await response.json();
-
-      document.querySelectorAll("[data-media-preview]").forEach((image) => {
-        const { project, index } = parsePreviewKey(image.dataset.mediaPreview);
-        const asset = projectMedia.projects?.[project]?.[index];
-        if (!asset) return;
-        image.src = asDataUrl(asset);
-        image.loading = "lazy";
-      });
-    } catch (error) {
-      console.error("Falha ao carregar a mídia do portfólio:", error);
-      document.querySelectorAll("[data-media-preview]").forEach((image) => {
-        image.classList.add("media-unavailable");
-      });
-    }
-  };
 
   const renderThumbnailStrip = () => {
     viewerThumbnails.replaceChildren();
@@ -87,9 +77,8 @@
       button.type = "button";
       button.className = "viewer-thumb" + (index === activeIndex ? " is-active" : "");
       button.setAttribute("aria-label", "Ver imagem " + (index + 1) + ": " + item.name);
-
       const image = document.createElement("img");
-      image.src = asDataUrl(item);
+      image.src = item.src;
       image.alt = "";
       button.append(image);
       button.addEventListener("click", () => setGalleryIndex(index));
@@ -103,7 +92,7 @@
     activeIndex = (index + activeGallery.length) % activeGallery.length;
     const item = activeGallery[activeIndex];
 
-    viewerImage.src = asDataUrl(item);
+    viewerImage.src = item.src;
     viewerImage.alt = item.name;
     viewerCaption.textContent = item.name;
     viewerCounter.textContent =
@@ -121,7 +110,7 @@
 
   const openGallery = (project) => {
     const config = projectLabels[project];
-    const gallery = projectMedia?.projects?.[project] || [];
+    const gallery = projectGalleries[project] || [];
     if (!config || !gallery.length) return;
 
     activeGallery = gallery;
@@ -158,22 +147,8 @@
   };
 
   document.querySelectorAll("[data-open-gallery]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const project = button.dataset.openGallery;
-      if (!projectMedia) {
-        button.disabled = true;
-        button.textContent = "Carregando imagens…";
-        loadProjectMedia().then(() => {
-          button.disabled = false;
-          button.textContent = "Abrir galeria ↗";
-          openGallery(project);
-        });
-        return;
-      }
-      openGallery(project);
-    });
+    button.addEventListener("click", () => openGallery(button.dataset.openGallery));
   });
-
   document.querySelectorAll("[data-open-details]").forEach((button) => {
     button.addEventListener("click", () => {
       if (button.dataset.openDetails === "simueng") openSimuEngDetails();
@@ -187,7 +162,6 @@
   viewer.addEventListener("click", (event) => {
     if (event.target === viewer) viewer.close();
   });
-
   viewer.addEventListener("keydown", (event) => {
     if (!viewer.open || viewerImageStage.hidden) return;
     if (event.key === "ArrowLeft") {
@@ -200,5 +174,4 @@
   });
 
   updateProjectCount();
-  loadProjectMedia();
 })();
