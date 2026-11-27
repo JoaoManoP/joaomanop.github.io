@@ -4,29 +4,22 @@ Portfólio pessoal de João Manoel, apresentando projetos, softwares, experiment
 
 ## Publicação com GitHub Pages
 
-O site usa HTML, CSS e JavaScript puros. Não precisa de Node.js, compilação ou dependências.
+Este site utiliza HTML, CSS e JavaScript, sem etapa de compilação.
 
-1. Abra **Settings** neste repositório.
-2. No menu lateral, entre em **Pages**.
-3. Em **Build and deployment → Source**, selecione **Deploy from a branch**.
-4. Em **Branch**, selecione `main` e a pasta `/(root)`.
-5. Clique em **Save**.
+1. Abra **Settings → Pages** neste repositório.
+2. Em **Build and deployment**, selecione **Deploy from a branch**.
+3. Selecione a branch `main` e a pasta `/(root)`.
+4. Clique em **Save**.
 
-Depois que o GitHub concluir a publicação, o site ficará disponível em:
+Endereço esperado: https://joaomanop.github.io/
 
-https://joaomanop.github.io/
+## Arquivos
 
-As próximas alterações feitas na branch `main` serão publicadas automaticamente. A primeira publicação pode levar alguns minutos.
-
-## Estrutura
-
-- `index.html`: estrutura e conteúdo do portfólio.
+- `index.html`: conteúdo e estrutura.
 - `styles.css`: identidade visual e layout responsivo.
 - `script.js`: filtros dos projetos.
 - `assets/mark.svg`: ícone do site.
 
-## Privacidade dos projetos
+## Privacidade e estado dos projetos
 
-O portfólio apresenta descrições de projetos sem disponibilizar seus repositórios privados. Apenas links explicitamente públicos são apresentados.
-
-Os projetos em desenvolvimento são identificados como tal; suas descrições resumem objetivos e escopo, não significam que todas as funcionalidades estejam concluídas.
+O portfólio não publica repositórios privados. Projetos sem demonstração pública são apresentados com uma descrição de escopo e identificados como em desenvolvimento ou experimentais, conforme o caso.
