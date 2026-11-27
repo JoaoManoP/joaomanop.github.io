@@ -5,7 +5,7 @@
 .km-header{height:78px;position:sticky;top:0;z-index:30;background:rgba(9,9,12,.94);border-bottom:1px solid #29262a;backdrop-filter:blur(18px)}
 .km-header-inner{width:min(var(--max),calc(100% - 96px));height:100%;margin:auto;display:flex;align-items:center;gap:42px}
 .km-brand{display:flex;align-items:center;gap:10px;flex:none}
-.km-brand img{width:39px;height:39px;object-fit:contain;filter:grayscale(1) brightness(0) invert(1)}
+.km-brand img{width:39px;height:39px;object-fit:contain;filter:brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(2325%) hue-rotate(334deg) brightness(93%) contrast(96%)}
 .km-brand-name{font:800 12px/1.05 var(--font);letter-spacing:.09em}.km-brand-name small{display:block;margin-top:5px;color:#9b969a;font:500 7px/1 var(--body);letter-spacing:.23em}
 .km-nav{display:flex;align-items:center;gap:30px;margin-left:auto}.km-nav a{font-size:11px;font-weight:600;color:#aaa5aa;transition:color .2s}.km-nav a:hover{color:#fff}
 .km-header-cta{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 17px;background:var(--red);color:white!important;font-size:10px;font-weight:800;transition:background .2s,transform .2s}.km-header-cta:hover{background:#ff4c56;transform:translateY(-2px)}
